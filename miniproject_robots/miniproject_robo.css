@@ -1,0 +1,22 @@
+body {
+    background-color: lightcyan;
+}
+
+.card-img-top {
+    width: 200px;
+    border-radius: 50%;
+    background-color: darkcyan;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #00ffff;
+}
+
+.row {
+    padding: 2% 8% 5% 10%;
+    width: 99%;
+}
+
+

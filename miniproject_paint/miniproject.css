@@ -1,0 +1,43 @@
+.palette {
+    display: grid;
+    height: 94vh;
+    width: 15%;
+    grid-gap: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(15, 1fr);
+    background-color: #53b1fd;
+    padding: 10px;
+    float: left;
+}
+
+.canvas {
+    display: grid;
+    height: 94vh;
+    grid-template-columns: repeat(80, 1fr);
+    background-color: rgb(177, 248, 177);
+    padding: 10px;
+}
+  
+.palette-items {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 10px;
+}
+
+.canvas-items {
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding: 1px;
+    text-align: center;
+}
+
+.label {
+    font-size: x-large;
+    justify-self: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#colour {
+    justify-self: center;
+}
