@@ -1,0 +1,65 @@
+body {
+    margin: 0 auto;
+}
+
+
+/* NAVBAR */
+.navbar-nav>li a {
+    font-size: 1.2em;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    
+}
+
+.navbar {
+    height: 3rem;
+
+}
+
+.navbaritems {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.logo {
+    height: 2.5rem;
+    width: 5rem;
+    
+}
+
+
+/* HEADER BACKGROUND */
+
+.masthead-content{
+  position: relative;
+  overflow: hidden;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  background-repeat: contain;
+  background-position: center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+/* blog */
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1.5em;
+
+}
+
+h1 {
+    font-family: "Abril Fatface", Arial, Helvetica, sans-serif;
+    color:rgb(52, 136, 26);
+}
+
+h4  {
+    font-family: "Anton";
+}
+

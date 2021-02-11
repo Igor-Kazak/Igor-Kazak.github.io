@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_aviva.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Montserrat&display=swap" rel="stylesheet">
+    <title>CarboFree</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(255, 242, 203);">
+            <a class="nav-brand" href="index_aviva.html"><img src="logoFin.png" class="img logo" alt="carboFree Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbaritems" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" target="_blank" href="Video/whatis_aviva.html">What are CO2 emissions?</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" target="_blank" href="Blogpost/blog_aviva.html">Learn More</span></a>
+                </li>
+              </ul>
+        </nav>
+        <div class="masthead text-center text-white">
+            <div class="masthead-content backgroundIMG" style="background-image:url(background/cow.jpg)">
+                <div class="container">
+                    <h1 class="masthead-heading mb-0 headtxt">Helping the nature</h1>
+                    <h1 class="masthead-subheading mb-0 headtxt2">One shop at a time</h1>
+                </div>
+            </div>
+        </div>
+  </header>
+  <section class="main">
+        <div class="productsMeat" id="productsMeat">
+            <p class="meatProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseMeat" aria-expanded="false" aria-controls="collapseMeat" style="background-image: url(sections/meat.png);"></button>
+            </p>
+            <div class="collapse" id="collapseMeat">
+                <div class="card card-body"></div>
+            </div>
+
+        </div>
+        <div class="productsDairy" id="productsDairy">
+            <p class="dairyProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseDairy" aria-expanded="false" aria-controls="collapseMeat" style="background-image: url(sections/dairy.png);" ></button>
+            </p>
+            <div class="collapse" id="collapseDairy">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsFish" id="productsFish">
+            <p class="fishProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseFish" aria-expanded="false" aria-controls="collapseFish" style="background-image: url(sections/fish.png);"></button>
+            </p>
+            <div class="collapse" id="collapseFish">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsFV" id="productsFV">
+            <p class="fvProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseFV" aria-expanded="false" aria-controls="collapseFV" style="background-image: url(sections/fruitveg.png);"></button>
+            </p>
+            <div class="collapse" id="collapseFV">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsBakery" id="productsBakery">
+            <p class="bakeryProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseBakery" aria-expanded="false" aria-controls="collapseBakery" style="background-image: url(sections/bread.png);"></button>
+            </p>
+            <div class="collapse" id="collapseBakery">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsCupboard" id="productsCupboard">
+            <p class="cupboardProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseCupboard" aria-expanded="false" aria-controls="collapseCupboard" style="background-image: url(sections/cupboard.png);"></button>
+            </p>
+            <div class="collapse" id="collapseCupboard">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsDrink" id="productsDrink">
+
+            <p class="drinkProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseDrink" aria-expanded="false" aria-controls="collapseDrink" style="background-image: url(sections/drinks.png);"></button>
+            </p>
+            <div class="collapse" id="collapseDrink">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+        <div class="productsAlternative" id="productsAlternative">
+
+            <p class="alternativeProducts">
+                <button class="btn btn-transparent allbtn" type="button" data-toggle="collapse" data-target="#collapseAlternative" aria-expanded="false" aria-controls="collapseAlternative" style="background-image: url(sections/alternative.png);"></button>
+            </p>
+            <div class="collapse" id="collapseAlternative">
+                <div class="card card-body"></div>
+            </div>
+        </div>
+
+  </section>
+
+  <section class="calculation">
+        <div id="calTable"></div>
+        <ul id="totalItems"></ul>
+  </section>
+
+  <section class="results">
+    <div id="result" style="width: 100%;">
+        <canvas id="myChart"></canvas>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="result.js"></script>
+      
+    
+</body>
+</html>
