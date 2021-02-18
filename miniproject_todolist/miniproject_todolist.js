@@ -13,14 +13,14 @@ if (localStorage.getItem('todolist')) {
     let now = Date.now();
     for (let i = 0; i < obj.items.length; i++) {
         let date = new Date(obj.items[i].end);
-        if (date < now && obj.items[i].status != 'Done'){
+        if (date < now && obj.items[i].status != 'Done' && obj.items[i].end != null) {
             obj.items[i].status = 'Missed'
         }
-    } 
+    }
     printAll();
 }
 else {
-    var obj = {"items":[]}
+    var obj = { "items": [] }
 }
 
 function additem() {
@@ -30,6 +30,7 @@ function additem() {
     let end = new Date(document.getElementById('enddate').value);
     obj.items.push(new Item(name, description, start, end, 'Active'));
     localStorage.setItem('todolist', JSON.stringify(obj));
+    window.location.reload();
 }
 
 function printAll() {
@@ -37,11 +38,11 @@ function printAll() {
     let now = new Date();
     for (let i = 0; i < obj.items.length; i++) {
         let tr = document.createElement('tr');
-        if (obj.items[i].status == 'Done'){
-            tr.className = 'table-info';  
+        if (obj.items[i].status == 'Done') {
+            tr.className = 'table-info';
         }
-        if (obj.items[i].status == 'Missed'){
-            tr.className = 'table-danger';  
+        if (obj.items[i].status == 'Missed') {
+            tr.className = 'table-danger';
         }
         tr.addEventListener('mousedown', done);
         tr.id = i;
@@ -54,17 +55,21 @@ function printAll() {
         td2.textContent = obj.items[i].description;
         let td3 = document.createElement('td');
         let start = obj.items[i].start;
-        start = start.replace('T', ' ');
-        start = start.replace(':00.000Z', '');
-        td3.textContent = start;
-        let td4 = document.createElement('td');
-        let end = new Date(obj.items[i].end)
-        let days = parseInt((end - now) / (1000*60*60*24));
-        if (days >= 0) {
-        td4.textContent = days + ' days left';
+        if (start != null) {
+            start = start.replace('T', ' ');
+            start = start.replace(':00.000Z', '');
+            td3.textContent = start;
         }
-        else {
-        td4.textContent = days*(-1) + ' days missed';            
+        let td4 = document.createElement('td');
+        if (obj.items[i].end != null) {
+        let end = new Date(obj.items[i].end);
+            let days = parseInt((end - now) / (1000 * 60 * 60 * 24));
+            if (days >= 0) {
+                td4.textContent = days + ' days left';
+            }
+            else {
+                td4.textContent = days * (-1) + ' days missed';
+            }
         }
         let td5 = document.createElement('td');
         td5.textContent = obj.items[i].status;
@@ -78,7 +83,7 @@ function printAll() {
     }
 }
 
-function done(event){
+function done(event) {
     let i = event.target.parentElement.id;
     if (event.which === 1 || event.button === 0) {
         if (obj.items[i].status == 'Active' || obj.items[i].status == 'Missed') {
@@ -93,16 +98,14 @@ function done(event){
     if (event.which === 3 || event.button === 2) {
         let i = event.target.parentElement.id;
         obj.items.splice(i, 1);
-        localStorage.setItem('todolist', JSON.stringify(obj));
-        window.location.reload();
     }
-
     localStorage.setItem('todolist', JSON.stringify(obj));
     window.location.reload();
 }
 
 function clearAll() {
     localStorage.clear('todoList');
+    window.location.reload();
 }
 
 // function remove(event){
