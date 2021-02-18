@@ -10,6 +10,16 @@ class Item {
 
 if (localStorage.getItem('todolist')) {
     var obj = JSON.parse(localStorage.getItem('todolist'));
+    let temp = {};
+    for (let i = 0; i < obj.items.length; i++) {
+        for (let b = i + 1; b < obj.items.length; b++) {
+            if (obj.items[i].start > obj.items[b].start) {
+                temp = { ...obj.items[i] };
+                obj.items[i] = { ...obj.items[b]};
+                obj.items[b] = { ...temp};
+            }
+        }
+    }
     let now = Date.now();
     for (let i = 0; i < obj.items.length; i++) {
         let date = new Date(obj.items[i].end);
@@ -73,34 +83,41 @@ function printAll() {
         }
         let td5 = document.createElement('td');
         td5.textContent = obj.items[i].status;
+        let td6 = document.createElement('td');
+        //td6.innerHTML = '<button type="button" id="editbtn" class="btn btn-outline-primary btn-sm">Edit</button>';
+        td6.textContent = 'Edit';
+        td6.addEventListener('mousedown', edit);
         tr.appendChild(th);
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6);
         table.appendChild(tr);
     }
 }
 
+//  <button type="button" name="edit" class="btn btn-warning" onclick="edit()">Edit</button>
+
 function done(event) {
-    let i = event.target.parentElement.id;
-    if (event.which === 1 || event.button === 0) {
-        if (obj.items[i].status == 'Active' || obj.items[i].status == 'Missed') {
-            obj.items[i].status = 'Done';
-        }
-        else {
-            if (obj.items[i].status == 'Done') {
-                obj.items[i].status = 'Active';
+        let i = event.target.parentElement.id;
+        if (event.which === 1 || event.button === 0) {
+            if (obj.items[i].status == 'Active' || obj.items[i].status == 'Missed') {
+                obj.items[i].status = 'Done';
+            }
+            else {
+                if (obj.items[i].status == 'Done') {
+                    obj.items[i].status = 'Active';
+                }
             }
         }
-    }
-    if (event.which === 3 || event.button === 2) {
-        let i = event.target.parentElement.id;
-        obj.items.splice(i, 1);
-    }
-    localStorage.setItem('todolist', JSON.stringify(obj));
-    window.location.reload();
+        if (event.which === 3 || event.button === 2) {
+            let i = event.target.parentElement.id;
+            obj.items.splice(i, 1);
+        }
+        localStorage.setItem('todolist', JSON.stringify(obj));
+        window.location.reload();
 }
 
 function clearAll() {
@@ -108,22 +125,40 @@ function clearAll() {
     window.location.reload();
 }
 
-// function remove(event){
-//     let i = event.target.parentElement.id;
-//     obj.items.splice(i, 1);
-//     localStorage.setItem('todolist', JSON.stringify(obj));
-//     window.location.reload();
-// }
+function edit(event) {
+    event.stopPropagation();
+    let i = event.target.parentElement.id;
+    document.getElementById('name').value = obj.items[i].name;
+    document.getElementById('description').value = obj.items[i].description;
+    if (obj.items[i].start != null) {
+        let start = obj.items[i].start;
+        start = start.replace(':00.000Z', '');
+        document.getElementById('startdate').value = start;
+    }
+    if (obj.items[i].end != null) {
+        let end = obj.items[i].end;
+        end = end.replace(':00.000Z', '');
+        document.getElementById('enddate').value = end;
+    }
+    let btn = document.getElementById('addbutton');
+    btn.textContent = 'Save';
+    btn.classList.toggle('btn-info');
+    btn.classList.toggle('btn-success');
+    btn.setAttribute('onclick', 'save('+i+')');
+    document.getElementById(i).className = 'table-dark';
+}
 
-// function print() {
-//     let list = document.getElementById('list');
-//     let li = document.createElement('li');
-//     li.addEventListener('click', clearMe);
-//     li.textContent = arr[arr.length - 1];
-//     list.appendChild(li);
-// }
-
-// function clearMe(event) {
-//     let toClear = event.target.textContent;
-//     event.target.remove();
-// }
+function save(i){
+    let name = document.getElementById('name').value;
+    let description = document.getElementById('description').value;
+    let start = new Date(document.getElementById('startdate').value);
+    let end = new Date(document.getElementById('enddate').value);
+    obj.items[i] = new Item(name, description, start, end, 'Active');
+    localStorage.setItem('todolist', JSON.stringify(obj));
+    let btn = document.getElementById('addbutton');
+    btn.textContent = 'Add to list';
+    btn.classList.toggle('btn-info');
+    btn.classList.toggle('btn-success');
+    btn.setAttribute('onclick', 'additem()');
+    window.location.reload();
+}

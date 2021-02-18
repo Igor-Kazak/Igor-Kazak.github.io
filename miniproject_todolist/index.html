@@ -32,7 +32,7 @@
         </div>
         <div class="col">
           <label for="add" style="color: white">Add to list:</label><br>
-          <button type="button" name="add" class="btn btn-info" onclick="additem()">Add to list</button>
+          <button type="button" id="addbutton" name="add" class="btn btn-info" onclick="additem()">Add to list</button>
         </div>
         <div class="col colforbutton">
           <label for="clear" style="color: white">Clear all:</label><br>
@@ -52,6 +52,7 @@
           <th scope="col">Start</th>
           <th scope="col">Days left</th>
           <th scope="col">Status</th>
+          <th scope="col">Edit</th>
         </tr>
       </thead>
       <tbody id="table">
@@ -60,7 +61,7 @@
   </div>
 <!----------------------------------------------------------------->
 <div>
-  <p style="text-align: center; font-weight: bold;">Left click on row to change the status of event. Right click on row to delete this event.</p>
+  <p style="text-align: center; font-weight: bold;">Left click on row to change the status of event | Right click on row to delete this event. | To edit - click on Edit.</p>
 </div>
 <!-- <div id="weekgraph" class="maindiv">
     <div class="progress">
