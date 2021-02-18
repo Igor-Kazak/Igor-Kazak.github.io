@@ -20,3 +20,7 @@ body{
 .colforbutton{
     text-align: right;
 }
+
+.progress {
+    font-size: large;
+}
