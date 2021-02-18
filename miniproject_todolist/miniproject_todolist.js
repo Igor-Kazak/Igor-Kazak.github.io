@@ -32,17 +32,6 @@ function additem() {
     localStorage.setItem('todolist', JSON.stringify(obj));
 }
 
-{/* <tr>
-<th scope="row">1</th>
-<td>Miniproject</td>
-<td>do this miniproject</td>
-<td>18-02-2021 09:30</td>
-<td>18-02-2021 13:30</td>
-<td>Active</td>
-</tr> 
-<tr class="table-danger">
-*/}
-
 function printAll() {
     let table = document.getElementById('table');
     for (let i = 0; i < obj.items.length; i++) {
@@ -53,7 +42,8 @@ function printAll() {
         if (obj.items[i].status == 'Missed'){
             tr.className = 'table-danger';  
         }
-        tr.addEventListener('click', done);
+        tr.addEventListener('mousedown', done);
+        // tr.addEventListener('dblclick', remove);
         tr.id = i;
         let th = document.createElement('th');
         th.setAttribute('scope', 'row');
@@ -80,17 +70,33 @@ function printAll() {
 
 function done(event){
     let i = event.target.parentElement.id;
-    if (obj.items[i].status == 'Active' || obj.items[i].status == 'Missed') {
-        obj.items[i].status = 'Done';
-    }
-    else {
-        if (obj.items[i].status == 'Done') {
-            obj.items[i].status = 'Active';
+    if (event.which === 1 || event.button === 0) {
+        if (obj.items[i].status == 'Active' || obj.items[i].status == 'Missed') {
+            obj.items[i].status = 'Done';
+        }
+        else {
+            if (obj.items[i].status == 'Done') {
+                obj.items[i].status = 'Active';
+            }
         }
     }
+    if (event.which === 3 || event.button === 2) {
+        let i = event.target.parentElement.id;
+        obj.items.splice(i, 1);
+        localStorage.setItem('todolist', JSON.stringify(obj));
+        window.location.reload();
+    }
+
     localStorage.setItem('todolist', JSON.stringify(obj));
     window.location.reload();
 }
+
+// function remove(event){
+//     let i = event.target.parentElement.id;
+//     obj.items.splice(i, 1);
+//     localStorage.setItem('todolist', JSON.stringify(obj));
+//     window.location.reload();
+// }
 
 // function print() {
 //     let list = document.getElementById('list');
