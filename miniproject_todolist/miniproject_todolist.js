@@ -34,6 +34,7 @@ function additem() {
 
 function printAll() {
     let table = document.getElementById('table');
+    let now = new Date();
     for (let i = 0; i < obj.items.length; i++) {
         let tr = document.createElement('tr');
         if (obj.items[i].status == 'Done'){
@@ -43,7 +44,6 @@ function printAll() {
             tr.className = 'table-danger';  
         }
         tr.addEventListener('mousedown', done);
-        // tr.addEventListener('dblclick', remove);
         tr.id = i;
         let th = document.createElement('th');
         th.setAttribute('scope', 'row');
@@ -53,9 +53,19 @@ function printAll() {
         let td2 = document.createElement('td');
         td2.textContent = obj.items[i].description;
         let td3 = document.createElement('td');
-        td3.textContent = obj.items[i].start
+        let start = obj.items[i].start;
+        start = start.replace('T', ' ');
+        start = start.replace(':00.000Z', '');
+        td3.textContent = start;
         let td4 = document.createElement('td');
-        td4.textContent = obj.items[i].end
+        let end = new Date(obj.items[i].end)
+        let days = parseInt((end - now) / (1000*60*60*24));
+        if (days >= 0) {
+        td4.textContent = days + ' days left';
+        }
+        else {
+        td4.textContent = days*(-1) + ' days missed';            
+        }
         let td5 = document.createElement('td');
         td5.textContent = obj.items[i].status;
         tr.appendChild(th);
@@ -91,6 +101,10 @@ function done(event){
     window.location.reload();
 }
 
+function clearAll() {
+    localStorage.clear('todoList');
+}
+
 // function remove(event){
 //     let i = event.target.parentElement.id;
 //     obj.items.splice(i, 1);
@@ -105,12 +119,6 @@ function done(event){
 //     li.textContent = arr[arr.length - 1];
 //     list.appendChild(li);
 // }
-
-
-
-function clearAll() {
-    localStorage.clear('todoList');
-}
 
 // function clearMe(event) {
 //     let toClear = event.target.textContent;
