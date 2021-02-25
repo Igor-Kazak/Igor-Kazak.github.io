@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.maindiv{
+    width: 80%;
+    margin: 2% 10% 3% 10%;
+}
+
+.form-control{
+    margin: 1% 0 1% 0;
+}
+
+.colforbutton{
+    text-align: right;
+}
+
+.drawdiv{
+    margin: 2% 2% 2% 2%;
+    width: 96%;
+}
+
+h5{
+    text-shadow: 1px 1px 2px black;
+}
+
+.ps{
+    text-shadow: 1px 1px 1px black; 
+}
+
