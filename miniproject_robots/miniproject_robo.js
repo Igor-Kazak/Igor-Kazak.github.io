@@ -1,16 +1,3 @@
-// fetch('https://jsonplaceholder.typicode.com/users', {
-//     method: "GET"
-// })
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         createRobots(data);
-//     })
-//     .catch(err => {
-//         console.log('Request Failed', err)
-//     });
-
 async function fetchRobots() {
     try {
         let response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -82,24 +69,6 @@ function keyupFunction() {
         }
     }
 }
-
-// function posts(event) {
-//     fetch('https://jsonplaceholder.typicode.com/posts?userId=' + event.target.className, {
-//     method: "GET"
-// })
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         for (let i = 0; i < data.length; i++) {
-//             console.log(data[i].title);
-//             console.log(data[i].body);
-//         }
-//     })
-//     .catch(err => {
-//         console.log('Request Failed', err)
-//     });
-// }
 
 async function posts(event) {
     try {
