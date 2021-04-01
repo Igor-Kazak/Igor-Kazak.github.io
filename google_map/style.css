@@ -1,0 +1,24 @@
+html, body {
+    background-color: #e3f2fd;
+    height: 74vh;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 2% 2% 2% 2%;
+    padding: 0;    
+    height: 100%;
+}
+
+.navbar {
+    background-color: #e3f2fd;
+}
+
+#map {
+    height: 100%;
+  }
+
+.footertext {
+    text-align: center;
+}
