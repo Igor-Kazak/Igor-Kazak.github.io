@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <title>Igor Kazak | Full Stack Developer</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    a {
+      transition: all 0.3s ease;
+    }
+
+    .weight-500 {
+      font-weight: 500;
+    }
+
+    .weight-600 {
+      font-weight: 600;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #162746;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .navbar-nav {
+      font-weight: 600;
+    }
+
+    .btn {
+      padding: 13.5px 36px;
+      font-weight: 700;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background-color: #6264fa;
+    }
+
+    .btn-primary:hover {
+      background-color: #3b3dd1;
+    }
+
+    .btn-outline-primary {
+      color: #625cfe;
+      border-color: #625cfe;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #625cfe;
+    }
+
+    .btn-link {
+      color: #625cfe;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .btn-link:hover {
+      color: #625cfe;
+      opacity: 0.5;
+      text-decoration: none;
+    }
+
+    ::placeholder {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .show>.nav-link {
+      color: #625cfe;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 1rem !important;
+      padding-left: 1rem;
+    }
+
+    .active a {
+      font-weight: bold;
+    }
+
+    .display-5 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .bg-circle {
+      background: url(img/bg-circle.png) no-repeat left top;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding-left: 21px;
+    }
+
+    .tt {
+      color: #2dcbbd;
+    }
+
+    .circle-new {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      background-color: #2dcbbd;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      display: flex;
+    }
+
+    a.text-blue {
+      color: #625cfe;
+    }
+
+    .bubble {
+      background: url(img/bubble.png) no-repeat right bottom;
+    }
+
+    @media(max-width:700px) {
+      p {
+        font-size: 13px;
+      }
+    }
+
+    #parallax {
+      position: relative;
+      width: 100%;
+      height: 800px;
+      background-image: url(img/back-1.png), url(img/back-2.png), url(img/back-3.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position: 50% 50%;
+    }
+
+    .bg-new-3 {
+      background: linear-gradient(rgba(255, 255, 255, .95), rgba(255, 255, 255, .95)), url(img/back-4.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .tt {
+      overflow: hidden;
+    }
+
+    .tt img {
+      width: 170px;
+      height: 170px;
+      border-radius: 170px;
+    }
+
+    .scrollDown {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-180deg);
+    }
+
+    .scrollDown i {
+      position: absolute;
+      bottom: 10px;
+      color: #ccc;
+      font-weight: 500;
+      font-size: 18px;
+      animation: scrollDown 2s ease infinite;
+    }
+
+    @keyframes scrollDown {
+
+      0%,
+      100% {
+        bottom: 0;
+      }
+
+      50% {
+        bottom: 10px;
+      }
+    }
+
+    .yy {
+      margin-bottom: 40px;
+    }
+
+    .yy img {
+      filter: grayscale(90%);
+      opacity: 0.3;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      height: 30px;
+      width: auto;
+    }
+
+    .yy img:hover {
+      filter: grayscale(10%);
+      opacity: 0.9;
+    }
+
+    .bg-2 {
+      background: url(img/banner-image-seventeen.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .bg-new {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #a3edd8;
+    }
+
+    .bg-new:hover {
+      transform: scale(1.04);
+    }
+
+    .bg-new-2 {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #f4df64;
+    }
+
+    .bg-new-2:hover {
+      transform: scale(1.04);
+    }
+
+    .nn img {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nn img:hover {
+      transform: scale(1.04);
+    }
+
+    .uu li {
+      padding-top: 12px;
+      font-weight: 600;
+      color: #162746;
+      font-size: 15px;
+    }
+
+    h4.bg-heading {
+      background-color: #8bd3bf;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-block;
+      border-radius: 20px;
+    }
+
+    h4.bg-heading2 {
+      background-color: #ffe131;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-block;
+      border-radius: 20px;
+    }
+
+    .icon-circle-80 {
+      transition: all 0.3s ease;
+      width: 50px;
+      margin: 08px;
+      height: 50px;
+      border-radius: 50px;
+      font-size: 15px;
+      border: 2px solid #ebebeb;
+      cursor: pointer;
+      background-color: #f5f5f5;
+    }
+
+    .icon-circle-80:hover {
+      box-shadow: 0px 0px 5px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon-circle-80 i {
+      font-size: 15px;
+    }
+
+    .icon-circle-80 a {
+      color: #666;
+    }
+
+    .icon-circle-80:hover {
+      background-color: #e34c43;
+      color: #fff;
+    }
+
+    .icon-circle-80:hover a {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand weight-600" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
+        class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mr-md-5">
+        <li class="nav-item active"> <a class="nav-link" href="#parallax">Home <span
+              class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#myskills">My skills</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#myprojects">My projects</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#contacts">Contacts</a> </li>
+      </ul>
+      <a href="mailto:igor@strizhi.ru" class="btn btn-light text-blue">Hire Me</a>
+    </div>
+  </nav>
+  <div id="parallax">
+    <div class="container">
+      <div class="row" style="height:800px;">
+        <div class="col-12 d-flex align-items-center">
+          <div class="text-center w-100">
+            <div class="tt mb-4"> <img src="img/main-profile.jpg"> </div>
+            <h1 class="display-5 weight-600">Hi, I'm Igor Kazak.</h1>
+            <h6 class="mb-4">Full Stack Developer</h6>
+            <p class="text-muted lead col-md-12 col-lg-8 mx-auto">
+              Full Stack Developer with a hardware engineering background. Experienced in Java,
+              Python, JavaScript, Node.js, React, HTML, CSS</p>
+            <a href="mailto:igor@strizhi.ru" class="btn btn-primary mt-5">Hire Me &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#myskills" class="scrollDown"> <i class="lni lni-mouse"></i> </a>
+  </div>
+
+  <div class="container py-5" id="myskills">
+    <div class="row">
+      <div class="col-12 text-center mb-0">
+        <h2>My skills</h2>
+      </div>
+    </div>
+    <div class="row align-items-center py-5">
+
+      <div class="col-md-12 col-lg-12">
+        <div class="row">
+          <div class="col-4">
+            <div class="bg-new-2  p-5 text-white">
+              <h4 class="bg-heading2">#Education</h4>
+              <ul class="list-unstyled uu">
+                <li>Full Stack Developer | Tel-Aviv</li>
+                <li>Python courses | Haifa</li>
+                <li>Java courses | Ukraine</li>
+                <li>Engineer | Russia</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="bg-new  p-5 text-white">
+              <h4 class="bg-heading">#Coding</h4>
+              <ul class="list-unstyled uu">
+                <li>Java, Python</li>
+                <li>JavaScript</li>
+                <li>Node.js, React</li>
+                <li>SQL databases</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="bg-new-2  p-5 text-white">
+              <h4 class="bg-heading2">#Languages</h4>
+              <ul class="list-unstyled uu">
+                <li>Russian | mother tongue</li>
+                <li>English | fluent</li>
+                <li>French | intermediate</li>
+                <li>Hebrew | basic</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-new-3 py-0" id="myprojects">
+    <div class="container py-0">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2>My projects</h2>
+        </div>
+      </div>
+      <div class="row align-items-center pb-4">
+        <div class="col-md-6 order-12 order-lg-1 nn"> <img src="img/portfolio-one.jpg"
+            class="img-fluid rounded border shadow"> </div>
+        <div class="col-md-6 px-5 order-1 order-lg-12">
+          <h4 class="mb-4">PPL test</h4>
+          <p class="text-muted mb-5">Final project made with Node.js, React, Express, HTML, CSS, PostgreSQL, Heroku.</p>
+          <div class="bg-circle mb-5 mb-md-0"><a href="https://ppltest.herokuapp.com/" target="_blank"
+              class="btn-link">Go to project &rarr;</a> </div>
+        </div>
+      </div>
+      <div class="row align-items-center pb-4">
+        <div class="col-md-6 px-5">
+          <h4 class="mb-4">CarboFree</h4>
+          <p class="text-muted mb-5">Bootcamp mini-project made with HTML, CSS, Bootstrap, JavaScript.</p>
+          <div class="bg-circle"><a href="https://igor-kazak.github.io/di_hackathon1/" target="_blank"
+              class="btn-link">Go to project &rarr;</a> </div>
+        </div>
+        <div class="col-md-6 mt-5 mt-md-0 nn"> <img src="img/portfolio-two.jpg" class="img-fluid rounded border shadow">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 order-12 order-lg-1 nn"> <img src="img/portfolio-three.jpg"
+            class="img-fluid rounded border shadow"> </div>
+        <div class="col-md-6 px-5 order-1 order-lg-12">
+          <h4 class="mb-4">Todo list</h4>
+          <p class="text-muted mb-5">Bootcamp mini-project made with HTML, CSS, Bootstrap, JavaScript, JSON.</p>
+          <div class="bg-circle mb-5 mb-md-0"><a href="https://igor-kazak.github.io/miniproject_todolist/"
+              target="_blank" class="btn-link">Go to project &rarr;</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pb-4" id="contacts">
+    <div class="row pt-5">
+      <div class="col-12 text-center d-flex justify-content-center">
+        <div class="icon-circle-80 d-flex justify-content-center align-items-center"> <a
+            href="https://www.linkedin.com/in/igor-kazak/" target="_blank"><i class="lni lni-linkedin-original"></i></a>
+        </div>
+        <div class="icon-circle-80 d-flex justify-content-center align-items-center"> <a
+            href="https://github.com/igor-kazak" target="_blank"><i class="lni lni-github-original"></i></a> </div>
+        <div class="icon-circle-80 d-flex justify-content-center align-items-center"> <a
+            href="mailto:igor@strizhi.ru"><i class="lni lni-envelope"></i></a> </div>
+        <div class="icon-circle-80 d-flex justify-content-center align-items-center"> <a href="tel:0536921549"><i
+              class="lni lni-phone"></i></a> </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center"> <span class="small text-white-50">Igor Kazak © 2021</span> </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+  <script>
+    $('.testimonials').owlCarousel({
+      loop: false,
+      margin: 10,
+      nav: false,
+      dots: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+    $(function () {
+      document.addEventListener("mousemove", parallax);
+      const elem = document.querySelector("#parallax");
+      function parallax(e) {
+        let _w = window.innerWidth / 2;
+        let _h = window.innerHeight / 2;
+        let _mouseX = e.clientX;
+        let _mouseY = e.clientY;
+        let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+        let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+        let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+        let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+        //console.log(x);
+        elem.style.backgroundPosition = x;
+      }
+
+    });
+  </script>
+</body>
+
+</html>
