@@ -48,7 +48,7 @@ function handleContact() {
 
 function handleBack() {
     let panel = document.getElementById('panel')
-    if (document.getElementById('contactForm')){
+    if (document.getElementById('contactForm')) {
         panel.removeChild(document.getElementById('contactForm'));
     }
     else {
@@ -128,7 +128,6 @@ function createButtons(panel) {
     buttonClose.style.width = '80px';
     buttonClose.addEventListener('click', handleClose);
     buttonDiv.appendChild(buttonClose);
-
 }
 
 function createInform(panel) {
@@ -220,7 +219,6 @@ function createContactForm(panel) {
     let buttonDiv = document.getElementById('buttonDiv');
     let buttonRefresh = document.getElementById('buttonRefresh');
     buttonDiv.replaceChild(buttonSubmit, buttonRefresh);
-
 }
 
 function sendData(dataToSend) {
