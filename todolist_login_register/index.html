@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List Project</title>
+  <link rel="stylesheet" href="miniproject_todolist.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div id="navbar" class="maindiv" style="text-align: right;" hidden>
+    <button type="button" id="account" name="account" class="btn btn-warning" style="font-size: x-small;"
+      onclick="accountSettings()">Account settings</button>
+    <button type="button" id="logout" name="logout" class="btn btn-warning" style="font-size: x-small;"
+      onclick="logOut()">Log out</button>
+  </div>
+
+  <div id="loginregister" class="maindiv" style="height: 90vh; padding-top: 30vh;">
+    <p style="font-weight: bold; text-align: center">TODO LIST</p>
+    <form>
+      <div class="row">
+        <div class="col" style="text-align: right;">
+          <button type="button" id="loginbuttonchoose" name="login" class="btn btn-info" style="width: 100px;"
+            onclick="userLoginEnter()">Login</button>
+        </div>
+        <div class="col" style="text-align: left;">
+          <button type="button" id="registerbuttonchoose" name="register" class="btn btn-info" style="width: 100px;"
+            onclick="userRegisterEnter()">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="login" class="maindiv" hidden>
+    <p style="font-weight: bold">LOGIN FORM:</p>
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="username">Enter the username:</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+        </div>
+        <div class="col">
+          <label for="password">Enter the password:</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p style="font-weight: bold; color: red" id="loginmessage"></p>
+        </div>
+        <div class="col colforbutton">
+          <button type="button" id="loginbutton" name="login" class="btn btn-info" onclick="userLogin()">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="register" class="maindiv" hidden>
+    <p style="font-weight: bold">REGISTER FORM:</p>
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="firstname">Enter the first name:</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="first name">
+        </div>
+        <div class="col">
+          <label for="lastname">Enter the last name:</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="last name">
+        </div>
+        <div class="col">
+          <label for="email">Enter the e-mail:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="e-mail">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="username">Enter the username:</label>
+          <input type="text" class="form-control" id="usernamereg" name="usernamereg" placeholder="username">
+        </div>
+        <div class="col">
+          <label for="password">Enter the password:</label>
+          <input type="password" class="form-control" id="passwordreg" name="passwordreg" placeholder="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p style="font-weight: bold; color: red" id="registermessage"></p>
+        </div>
+        <div class="col colforbutton">
+          <button type="button" id="registerbutton" name="register" class="btn btn-info"
+            onclick="userRegister()">Register</button>
+          <button type="button" id="updatebutton" name="update" class="btn btn-info" onclick="userUpdate()"
+            hidden>Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="todo" hidden>
+    <div id="additem" class="maindiv">
+      <form>
+        <div class="row">
+          <div class="col">
+            <label for="name">Enter the name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+          <div class="col">
+            <label for="description">Enter the description:</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="startdate">Start date and time:</label>
+            <input type="datetime-local" id="startdate" id="start" name="startdate" class="form-control">
+          </div>
+          <div class="col">
+            <label for="enddate">End date and time:</label>
+            <input type="datetime-local" id="enddate" id="end" name="enddate" class="form-control">
+          </div>
+          <div class="col">
+            <label for="add" style="color: white">Add to list:</label><br>
+            <button type="button" id="addbutton" name="add" class="btn btn-info" onclick="additem()">Add to
+              list</button>
+          </div>
+          <div class="col colforbutton">
+            <label for="clear" style="color: white">Clear all:</label><br>
+            <button type="button" name="clear" class="btn btn-danger" onclick="clearAll()">Clear all</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="itemlist" class="maindiv">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Discription</th>
+            <th scope="col">Start</th>
+            <th scope="col">Days left</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <p style="text-align: center; font-weight: bold;">Left click on row to change the status of event |
+        Right click on row to delete this event. | To edit - click on Edit. | This week events are below:</p>
+    </div>
+    <div id="weekgraph" class="maindiv">
+      <div class="progress" style="height: 30px;">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 14.28%">Sunday</div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 14.28%">Monday</div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 14.28%">Tuesday</div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 14.28%">Wednesday</div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 14.28%">Thursday</div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 14.30%">Friday</div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: 14.30%">Saturday</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="miniproject_todolist.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
