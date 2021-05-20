@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.maindiv{
+    width: 96%;
+    margin: 1% 2% 1% 2%;
+}
+
+.progress{
+    margin: 1% 0 1% 0;
+}
+
+.form-control{
+    margin: 1% 0 1% 0;
+}
+
+.colforbutton{
+    text-align: right;
+}
+
+.progress {
+    font-size: large;
+}
