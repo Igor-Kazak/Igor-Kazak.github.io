@@ -37,39 +37,6 @@ function userRegisterEnter() {
     requestPermission();
 }
 
-function requestPermission() {
-    Notification.requestPermission().then(function (result) {
-        console.log(result);
-    });
-}
-
-function notify() {
-        // Проверка поддержки браузером уведомлений
-        if (!("Notification" in window)) {
-          alert("This browser does not support desktop notification");
-        }
-      
-        // Проверка разрешения на отправку уведомлений
-        else if (Notification.permission === "granted") {
-          // Если разрешено, то создаём уведомление
-          var mailNotification = new Notification("Андрей Чернышёв", {
-            tag : "ache-mail",
-            body : "Привет, высылаю материалы по проекту...",
-            icon : "http://habrastorage.org/storage2/cf9/50b/e87/cf950be87f8c34e63c07217a009f1d17.jpg"
-        });
-        }
-      
-        // В противном случае, запрашиваем разрешение
-        else if (Notification.permission !== 'denied') {
-          Notification.requestPermission(function (permission) {
-            // Если пользователь разрешил, то создаём уведомление
-            if (permission === "granted") {
-              var notification = new Notification("Hi there!");
-            }
-          });
-        }
-}
-
 function userLogin() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
@@ -80,6 +47,7 @@ function userLogin() {
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
                 tableGenerator(username + '-list');
+                timer();
                 document.getElementById('login').setAttribute('hidden', '');
                 document.getElementById('navbar').removeAttribute('hidden');
                 document.getElementById('todo').removeAttribute('hidden');
@@ -124,6 +92,7 @@ function userRegister() {
                 document.getElementById('firstname').value = '';
                 document.getElementById('email').value = '';
                 tableGenerator(username + '-list');
+                timer();
                 document.getElementById('register').setAttribute('hidden', '');
                 document.getElementById('navbar').removeAttribute('hidden');
                 document.getElementById('todo').removeAttribute('hidden');
@@ -136,7 +105,9 @@ function userRegister() {
 }
 
 function tableGenerator(username) {
-    notify();
+    if (allowNotify === "default") {
+        requestPermission();
+    }
     userStorageName = username;
     let table = document.getElementById('table');
     table.innerHTML = `<thead><tr><th scope="col">#</th><th scope="col">Name</th>
@@ -432,4 +403,44 @@ function userUpdate() {
     else {
         document.getElementById('registermessage').textContent = 'Enter all data!';
     }
+}
+
+function requestPermission() {
+    Notification.requestPermission().then(function (result) {
+        console.log(result);
+        allowNotify = result;
+    });
+}
+
+function checkAlarm() {
+    for (let i = 0; i < obj.items.length; i++) {
+        let checkDate = new Date(obj.items[i].start);
+        let now = new Date();
+        now = [now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes()];
+        checkDate = [checkDate.getFullYear(), checkDate.getMonth(), checkDate.getDate(), checkDate.getHours(), checkDate.getMinutes()];
+        console.log(now, checkDate);
+        if (now.toString() == checkDate.toString() && obj.items[i].status == 'Active'){
+            notify(obj.items[i]);
+        }
+    }
+}
+
+function notify(item) {
+    if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+    }
+    else if (allowNotify === "granted") {
+        var mailNotification = new Notification(item.name, {
+            body: item.description,
+            icon: "https://f1.pngfuel.com/png/883/670/569/finger-icon-task-icon-design-management-computer-data-text-black-and-white-png-clip-art.png"
+        });
+    }
+    else {
+        console.log('Notifications are disabled.');
+    }
+    console.log('Notification! ' + item.name + '. ' + item.description);
+}
+
+function timer() {
+    setInterval(checkAlarm, 30000);
 }
