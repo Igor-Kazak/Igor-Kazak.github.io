@@ -407,7 +407,6 @@ function userUpdate() {
 
 function requestPermission() {
     Notification.requestPermission().then(function (result) {
-        console.log(result);
         allowNotify = result;
     });
 }
@@ -418,7 +417,6 @@ function checkAlarm() {
         let now = new Date();
         now = [now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes()];
         checkDate = [checkDate.getFullYear(), checkDate.getMonth(), checkDate.getDate(), checkDate.getHours(), checkDate.getMinutes()];
-        console.log(now, checkDate);
         if (now.toString() == checkDate.toString() && obj.items[i].status == 'Active'){
             notify(obj.items[i]);
         }
@@ -442,5 +440,5 @@ function notify(item) {
 }
 
 function timer() {
-    setInterval(checkAlarm, 30000);
+    setInterval(checkAlarm, 40000);
 }
